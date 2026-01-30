@@ -1,0 +1,214 @@
+/* ========================================
+   COMTECH SAÚDE - Design Tokens
+   Premium Enterprise Medical Tech
+   ======================================== */
+
+:root {
+  /* ========================================
+     PRIMARY COLORS - Hospital Blue Premium
+     ======================================== */
+  --primary-50: hsl(210, 100%, 97%);
+  --primary-100: hsl(210, 92%, 92%);
+  --primary-200: hsl(210, 85%, 84%);
+  --primary-300: hsl(210, 78%, 72%);
+  --primary-400: hsl(210, 72%, 58%);
+  --primary-500: hsl(210, 68%, 48%);  /* Main */
+  --primary-600: hsl(210, 72%, 40%);
+  --primary-700: hsl(210, 75%, 32%);
+  --primary-800: hsl(210, 78%, 24%);
+  --primary-900: hsl(210, 82%, 16%);
+
+  /* ========================================
+     SECONDARY COLORS - Medical Green Premium
+     ======================================== */
+  --secondary-50: hsl(160, 65%, 96%);
+  --secondary-100: hsl(160, 58%, 90%);
+  --secondary-200: hsl(160, 52%, 80%);
+  --secondary-300: hsl(160, 48%, 66%);
+  --secondary-400: hsl(160, 45%, 52%);
+  --secondary-500: hsl(160, 50%, 42%);  /* Main */
+  --secondary-600: hsl(160, 55%, 34%);
+  --secondary-700: hsl(160, 60%, 26%);
+  --secondary-800: hsl(160, 65%, 20%);
+  --secondary-900: hsl(160, 70%, 14%);
+
+  /* ========================================
+     NEUTRAL COLORS - Sophisticated Grays
+     ======================================== */
+  --neutral-50: hsl(220, 20%, 98%);
+  --neutral-100: hsl(220, 18%, 96%);
+  --neutral-200: hsl(220, 16%, 92%);
+  --neutral-300: hsl(220, 14%, 84%);
+  --neutral-400: hsl(220, 10%, 68%);
+  --neutral-500: hsl(220, 8%, 52%);
+  --neutral-600: hsl(220, 10%, 40%);
+  --neutral-700: hsl(220, 12%, 28%);
+  --neutral-800: hsl(220, 15%, 18%);
+  --neutral-900: hsl(220, 18%, 12%);
+  --neutral-950: hsl(220, 22%, 8%);
+
+  /* ========================================
+     SEMANTIC BACKGROUNDS
+     ======================================== */
+  --bg-1: hsl(220, 20%, 99%);  /* Off-white */
+  --bg-2: hsl(220, 18%, 96%);  /* Light gray */
+  --bg-3: linear-gradient(135deg, hsl(210, 60%, 96%) 0%, hsl(160, 50%, 96%) 100%);
+  --bg-dark: hsl(210, 35%, 12%);
+  --bg-card: hsl(0, 0%, 100%);
+
+  /* ========================================
+     TEXT COLORS
+     ======================================== */
+  --text-strong: hsl(220, 18%, 16%);  /* Graphite */
+  --text-default: hsl(220, 14%, 28%);
+  --text-muted: hsl(220, 10%, 48%);
+  --text-subtle: hsl(220, 8%, 62%);
+  --text-inverted: hsl(0, 0%, 100%);
+
+  /* ========================================
+     STATE COLORS (Discrete, Professional)
+     ======================================== */
+  --success: hsl(152, 55%, 42%);
+  --success-light: hsl(152, 55%, 95%);
+  --warning: hsl(38, 75%, 50%);
+  --warning-light: hsl(38, 75%, 95%);
+  --error: hsl(0, 55%, 52%);
+  --error-light: hsl(0, 55%, 96%);
+
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  
+  /* Font Sizes */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.875rem;   /* 30px */
+  --text-4xl: 2.25rem;    /* 36px */
+  --text-5xl: 3rem;       /* 48px */
+  --text-6xl: 3.75rem;    /* 60px */
+
+  /* Font Weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* Line Heights */
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-wider: 0.04em;
+
+  /* ========================================
+     SPACING (8pt Grid)
+     ======================================== */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  /* Section Spacing */
+  --section-padding-desktop: 5rem;     /* 80px */
+  --section-padding-mobile: 3rem;      /* 48px */
+
+  /* ========================================
+     BORDER RADIUS
+     ======================================== */
+  --radius-sm: 0.5rem;    /* 8px */
+  --radius-md: 0.75rem;   /* 12px */
+  --radius-lg: 1rem;      /* 16px - Standard */
+  --radius-xl: 1.25rem;   /* 20px - Cards */
+  --radius-2xl: 1.5rem;   /* 24px - Special cards */
+  --radius-full: 9999px;
+
+  /* ========================================
+     SHADOWS (Premium, Layered)
+     ======================================== */
+  --shadow-xs: 0 1px 2px hsla(220, 20%, 10%, 0.04);
+  --shadow-sm: 0 2px 4px hsla(220, 20%, 10%, 0.04), 
+               0 1px 2px hsla(220, 20%, 10%, 0.06);
+  --shadow-md: 0 4px 12px hsla(220, 20%, 10%, 0.06), 
+               0 2px 4px hsla(220, 20%, 10%, 0.04);
+  --shadow-lg: 0 8px 24px hsla(220, 20%, 10%, 0.08), 
+               0 4px 8px hsla(220, 20%, 10%, 0.04);
+  --shadow-xl: 0 16px 48px hsla(220, 20%, 10%, 0.1), 
+               0 8px 16px hsla(220, 20%, 10%, 0.06);
+  
+  /* Colored Shadows */
+  --shadow-primary: 0 8px 24px hsla(210, 68%, 48%, 0.2);
+  --shadow-secondary: 0 8px 24px hsla(160, 50%, 42%, 0.2);
+
+  /* ========================================
+     BORDERS
+     ======================================== */
+  --border-hairline: 1px solid hsla(220, 15%, 10%, 0.06);
+  --border-light: 1px solid hsla(220, 15%, 10%, 0.08);
+  --border-default: 1px solid hsla(220, 15%, 10%, 0.12);
+  --border-focus: 2px solid var(--primary-500);
+
+  /* ========================================
+     TRANSITIONS
+     ======================================== */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+  --transition-slower: 400ms ease;
+
+  /* ========================================
+     Z-INDEX SCALE
+     ======================================== */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-tooltip: 600;
+  --z-toast: 700;
+
+  /* ========================================
+     CONTAINER
+     ======================================== */
+  --container-max: 1280px;
+  --container-padding: var(--space-6);
+
+  /* ========================================
+     BREAKPOINTS (for reference)
+     ======================================== */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
+}
+
+/* Dark mode tokens (for future use) */
+@media (prefers-color-scheme: dark) {
+  :root.dark-mode {
+    --bg-1: hsl(220, 18%, 10%);
+    --bg-2: hsl(220, 16%, 14%);
+    --bg-card: hsl(220, 16%, 16%);
+    --text-strong: hsl(220, 10%, 95%);
+    --text-default: hsl(220, 8%, 85%);
+    --text-muted: hsl(220, 6%, 60%);
+  }
+}

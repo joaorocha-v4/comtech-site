@@ -1,0 +1,428 @@
+/* ========================================
+   COMTECH SAÚDE - Layout System
+   Grid, Container, Sections
+   ======================================== */
+
+/* ========================================
+   CONTAINER
+   ======================================== */
+
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+}
+
+.container-sm {
+    max-width: 960px;
+}
+
+.container-lg {
+    max-width: 1440px;
+}
+
+/* ========================================
+   SECTIONS
+   ======================================== */
+
+section {
+    padding-top: var(--section-padding-desktop);
+    padding-bottom: var(--section-padding-desktop);
+}
+
+@media (max-width: 768px) {
+    section {
+        padding-top: var(--section-padding-mobile);
+        padding-bottom: var(--section-padding-mobile);
+    }
+}
+
+/* Section Backgrounds */
+.section-light {
+    background-color: var(--bg-1);
+}
+
+.section-gray {
+    background-color: var(--bg-2);
+}
+
+.section-gradient {
+    background: var(--bg-3);
+}
+
+.section-dark {
+    background-color: var(--bg-dark);
+    color: var(--text-inverted);
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+    color: var(--text-inverted);
+}
+
+.section-dark .lead,
+.section-dark p {
+    color: hsla(0, 0%, 100%, 0.8);
+}
+
+/* ========================================
+   12-COLUMN GRID SYSTEM
+   ======================================== */
+
+.grid {
+    display: grid;
+    gap: var(--space-6);
+}
+
+.grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+/* Responsive Grid */
+@media (max-width: 1024px) {
+    .lg\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .lg\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .md\:grid-cols-1 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .grid-cols-2,
+    .grid-cols-3,
+    .grid-cols-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Gap Utilities */
+.gap-4 {
+    gap: var(--space-4);
+}
+
+.gap-6 {
+    gap: var(--space-6);
+}
+
+.gap-8 {
+    gap: var(--space-8);
+}
+
+.gap-10 {
+    gap: var(--space-10);
+}
+
+.gap-12 {
+    gap: var(--space-12);
+}
+
+/* ========================================
+   FLEXBOX LAYOUTS
+   ======================================== */
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+/* ========================================
+   SPLIT LAYOUT (Text + Image)
+   ======================================== */
+
+.split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+}
+
+.split-reverse {
+    direction: rtl;
+}
+
+.split-reverse>* {
+    direction: ltr;
+}
+
+@media (max-width: 1024px) {
+    .split {
+        gap: var(--space-10);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .split,
+    .split-reverse {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        direction: ltr;
+    }
+}
+
+/* Split Content */
+.split-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.split-image {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+.split-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* ========================================
+   SECTION HEADER
+   ======================================== */
+
+.section-header {
+    text-align: center;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-12);
+}
+
+.section-header h2 {
+    margin-bottom: var(--space-4);
+}
+
+.section-header .badge {
+    margin-bottom: var(--space-4);
+}
+
+/* Left-aligned section header */
+.section-header-left {
+    text-align: left;
+    max-width: none;
+    margin-left: 0;
+    margin-bottom: var(--space-10);
+}
+
+/* ========================================
+   SPACING UTILITIES
+   ======================================== */
+
+.mt-auto {
+    margin-top: auto;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mb-2 {
+    margin-bottom: var(--space-2);
+}
+
+.mb-4 {
+    margin-bottom: var(--space-4);
+}
+
+.mb-6 {
+    margin-bottom: var(--space-6);
+}
+
+.mb-8 {
+    margin-bottom: var(--space-8);
+}
+
+.mb-10 {
+    margin-bottom: var(--space-10);
+}
+
+.mb-12 {
+    margin-bottom: var(--space-12);
+}
+
+.pt-0 {
+    padding-top: 0;
+}
+
+.pb-0 {
+    padding-bottom: 0;
+}
+
+/* ========================================
+   TEXT UTILITIES
+   ======================================== */
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-primary {
+    color: var(--primary-600);
+}
+
+.text-secondary {
+    color: var(--secondary-600);
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.text-strong {
+    color: var(--text-strong);
+}
+
+/* ========================================
+   VISIBILITY
+   ======================================== */
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+/* ========================================
+   ASPECT RATIOS
+   ======================================== */
+
+.aspect-video {
+    aspect-ratio: 16 / 9;
+}
+
+.aspect-square {
+    aspect-ratio: 1 / 1;
+}
+
+.aspect-4-3 {
+    aspect-ratio: 4 / 3;
+}
+
+/* ========================================
+   IMAGE CONTAINERS
+   ======================================== */
+
+.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-contain {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ========================================
+   DECORATIVE BACKGROUNDS
+   ======================================== */
+
+.bg-mesh {
+    background-image:
+        radial-gradient(ellipse 80% 50% at 20% 40%, hsla(210, 68%, 48%, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 60%, hsla(160, 50%, 42%, 0.06) 0%, transparent 50%);
+}
+
+.bg-dots {
+    background-image: radial-gradient(hsla(220, 15%, 10%, 0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+.bg-grid {
+    background-image:
+        linear-gradient(hsla(220, 15%, 10%, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, hsla(220, 15%, 10%, 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+}

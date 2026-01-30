@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Entre em contato com a COMTECH SAÚDE. Solicite orçamentos, tire dúvidas ou fale com nossos especialistas em equipamentos hospitalares.">
+    <title>Contato | COMTECH SAÚDE</title>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/src/main.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header header-transparent">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="header-logo">
+                    <img src="/src/assets/images/logo-white.png" alt="COMTECH SAÚDE" class="logo-light">
+                    <img src="/src/assets/images/logo.png" alt="COMTECH SAÚDE" class="logo-dark">
+                </a>
+
+                <nav class="nav-main">
+                    <a href="/" class="nav-link">Início</a>
+                    <a href="solucoes.html" class="nav-link">Soluções</a>
+                    <a href="produtos.html" class="nav-link">Produtos</a>
+                    <a href="#" class="nav-link">Sobre</a>
+                    <a href="#" class="nav-link active">Contato</a>
+                </nav>
+
+                <!-- Action removed -->
+
+                <button class="mobile-toggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-menu">
+            <a href="/" class="mobile-nav-link">Início</a>
+            <a href="solucoes.html" class="mobile-nav-link">Soluções</a>
+            <a href="produtos.html" class="mobile-nav-link">Produtos</a>
+            <a href="#" class="mobile-nav-link">Sobre</a>
+            <a href="#" class="mobile-nav-link active">Contato</a>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content fade-in">
+                <nav class="breadcrumb breadcrumb-light">
+                    <a href="/">Início</a>
+                    <i class="bi bi-chevron-right"></i>
+                    <span class="breadcrumb-current">Contato</span>
+                </nav>
+                <h1>Fale Conosco</h1>
+                <p class="lead">
+                    Estamos prontos para ajudar você a encontrar a melhor solução
+                    para as necessidades do seu hospital.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section-light">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-card fade-in">
+                    <h2 style="margin-bottom: var(--space-2);">Solicite um Orçamento</h2>
+                    <p class="text-muted" style="margin-bottom: var(--space-8);">
+                        Preencha o formulário abaixo e nossa equipe entrará em contato em até 24 horas.
+                    </p>
+
+                    <form data-validate action="#" method="POST">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label class="form-label" for="nome">Nome completo *</label>
+                                <input type="text" id="nome" name="nome" class="form-input" required
+                                    placeholder="Seu nome">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="empresa">Hospital / Empresa *</label>
+                                <input type="text" id="empresa" name="empresa" class="form-input" required
+                                    placeholder="Nome do hospital ou empresa">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label class="form-label" for="email">E-mail *</label>
+                                <input type="email" id="email" name="email" class="form-input" required
+                                    placeholder="seu@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="telefone">Telefone / WhatsApp *</label>
+                                <input type="tel" id="telefone" name="telefone" class="form-input" required
+                                    placeholder="(00) 00000-0000">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="interesse">Área de interesse *</label>
+                            <select id="interesse" name="interesse" class="form-select" required>
+                                <option value="">Selecione uma opção</option>
+                                <option value="cme">CME Completo</option>
+                                <option value="cirurgico">Centro Cirúrgico</option>
+                                <option value="esterilizacao">Esterilização / Autoclaves</option>
+                                <option value="rastreabilidade">Rastreabilidade</option>
+                                <option value="termodesinfectora">Termodesinfectoras</option>
+                                <option value="manutencao">Manutenção / Suporte</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" class="form-textarea" rows="4"
+                                placeholder="Descreva sua necessidade ou dúvida..."></textarea>
+                        </div>
+
+                        <div style="margin-top: var(--space-6);">
+                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                                <i class="bi bi-send"></i> Enviar Mensagem
+                            </button>
+                        </div>
+
+                        <p class="text-center text-muted"
+                            style="margin-top: var(--space-4); font-size: var(--text-sm);">
+                            Ou entre em contato diretamente pelo
+                            <a href="https://wa.me/5562993451441" target="_blank"
+                                style="color: #25D366; font-weight: 600;">
+                                <i class="bi bi-whatsapp"></i> WhatsApp
+                            </a>
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info slide-right">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="bi bi-whatsapp"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/5562993451441">(62) 99345-1441</a></p>
+                            <p class="text-muted">Atendimento rápido e direto</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>E-mail</h4>
+                            <p><a href="mailto:rodrigo.r.marinho@icloud.com.br">rodrigo.r.marinho@icloud.com.br</a></p>
+                            <p class="text-muted">Respondemos em até 24h</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Endereço</h4>
+                            <p>
+                                Rua 1.141 Qd. 246 Lt. 33<br>
+                                St. Marista. Goiânia/GO<br>
+                                CEP 74.180-081
+                            </p>
+                            <p class="text-muted" style="font-style: italic;">*Sujeito a atualização</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="bi bi-clock"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Horário de Atendimento</h4>
+                            <p>Segunda a Sexta: 08h às 18h</p>
+                            <p class="text-muted">Sábado: 08h às 12h</p>
+                        </div>
+                    </div>
+
+                    <!-- Quick CTA Card -->
+                    <div class="card" style="background: var(--bg-3); margin-top: var(--space-8);">
+                        <div style="display: flex; align-items: center; gap: var(--space-4);">
+                            <div
+                                style="width: 56px; height: 56px; background: #25D366; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-whatsapp" style="font-size: 28px; color: white;"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: var(--text-base); margin-bottom: var(--space-1);">Resposta
+                                    Imediata</h4>
+                                <p style="color: var(--text-muted); font-size: var(--text-sm); margin: 0;">
+                                    Prefere atendimento rápido? Fale conosco agora!
+                                </p>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/5562993451441?text=Olá! Gostaria de mais informações sobre os equipamentos."
+                            class="btn btn-whatsapp" target="_blank" style="width: 100%; margin-top: var(--space-6);">
+                            <i class="bi bi-whatsapp"></i> Iniciar Conversa
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP SECTION (Placeholder) -->
+    <section class="section-gray" style="padding-top: 0;">
+        <div class="container">
+            <div class="full-width-image fade-in" style="height: 320px;">
+                <div
+                    style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--neutral-200) 0%, var(--neutral-300) 100%); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: var(--space-4);">
+                    <i class="bi bi-geo-alt" style="font-size: 48px; color: var(--neutral-500);"></i>
+                    <span class="text-muted">Mapa será carregado aqui</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <img src="/src/assets/images/logo.png" alt="COMTECH SAÚDE">
+                    </a>
+                    <p>
+                        Soluções hospitalares premium para CME e Centro Cirúrgico.
+                        Equipamentos de alta qualidade com suporte técnico especializado.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Soluções</h4>
+                    <ul class="footer-links">
+                        <li><a href="solucoes.html#cme">CME Completo</a></li>
+                        <li><a href="solucoes.html#cirurgico">Centro Cirúrgico</a></li>
+                        <li><a href="solucoes.html#esterilizacao">Esterilização</a></li>
+                        <li><a href="solucoes.html#rastreabilidade">Rastreabilidade</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Empresa</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Catálogo</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-whatsapp"></i>
+                        <span><a href="https://wa.me/5562993451441">(62) 99345-1441</a></span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-envelope"></i>
+                        <span><a
+                                href="mailto:rodrigo.r.marinho@icloud.com.br">rodrigo.r.marinho@icloud.com.br</a></span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>
+                            Rua 1.141 Qd. 246 Lt. 33<br>
+                            St. Marista. Goiânia/GO<br>
+                            CEP 74.180-081
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2025 COMTECH SAÚDE. CNPJ: 54.132.859/0001-83. Todos os direitos reservados.<br>
+          <span style="display: block; margin-top: 4px; opacity: 0.9; font-size: 0.9em;">
+            Desenvolvido com 💚 por <a href="https://camaly.com.br" target="_blank" rel="noopener" style="color: inherit; text-decoration: none; font-weight: 500;">Camaly Digital</a>
+          </span>
+                </p>
+                <div class="footer-legal">
+                    <a href="politica-privacidade.html">Política de Privacidade</a>
+                    <a href="termos-uso.html">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/5562993451441" target="_blank" aria-label="WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+    </div>
+
+    <script type="module" src="/src/scripts/main.js"></script>
+</body>
+
+</html>

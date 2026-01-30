@@ -1,0 +1,263 @@
+/* ========================================
+   COMTECH SAÚDE - Base Styles
+   Modern Reset + Typography
+   ======================================== */
+
+/* Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ========================================
+   MODERN CSS RESET
+   ======================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--text-base);
+    font-weight: var(--font-normal);
+    line-height: var(--leading-normal);
+    color: var(--text-default);
+    background-color: var(--bg-1);
+    min-height: 100vh;
+}
+
+/* ========================================
+   TYPOGRAPHY HIERARCHY
+   ======================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-strong);
+    font-weight: var(--font-bold);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+}
+
+h1 {
+    font-size: var(--text-5xl);
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: var(--text-4xl);
+    line-height: 1.15;
+}
+
+h3 {
+    font-size: var(--text-2xl);
+    line-height: 1.25;
+}
+
+h4 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+}
+
+h5 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+}
+
+h6 {
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+}
+
+p {
+    margin-bottom: var(--space-4);
+    line-height: var(--leading-relaxed);
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+/* Lead text */
+.lead {
+    font-size: var(--text-lg);
+    color: var(--text-muted);
+    line-height: var(--leading-relaxed);
+}
+
+/* Small text */
+small,
+.text-sm {
+    font-size: var(--text-sm);
+}
+
+.text-xs {
+    font-size: var(--text-xs);
+}
+
+/* ========================================
+   LINKS
+   ======================================== */
+
+a {
+    color: var(--primary-600);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--primary-700);
+}
+
+/* ========================================
+   LISTS
+   ======================================== */
+
+ul,
+ol {
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-4);
+}
+
+li {
+    margin-bottom: var(--space-2);
+    line-height: var(--leading-relaxed);
+}
+
+/* Reset list style for nav */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 0;
+}
+
+/* ========================================
+   IMAGES & MEDIA
+   ======================================== */
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    vertical-align: middle;
+}
+
+/* ========================================
+   FORM ELEMENTS
+   ======================================== */
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+input,
+textarea,
+select {
+    border: var(--border-default);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    background-color: var(--bg-card);
+    transition: border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 3px hsla(210, 68%, 48%, 0.12);
+}
+
+::placeholder {
+    color: var(--text-subtle);
+}
+
+/* ========================================
+   TABLES
+   ======================================== */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    text-align: left;
+    padding: var(--space-3) var(--space-4);
+}
+
+/* ========================================
+   UTILITY: SELECTION
+   ======================================== */
+
+::selection {
+    background-color: var(--primary-200);
+    color: var(--primary-900);
+}
+
+/* ========================================
+   RESPONSIVE TYPOGRAPHY
+   ======================================== */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: var(--text-4xl);
+    }
+
+    h2 {
+        font-size: var(--text-3xl);
+    }
+
+    h3 {
+        font-size: var(--text-xl);
+    }
+
+    .lead {
+        font-size: var(--text-base);
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: var(--text-3xl);
+    }
+
+    h2 {
+        font-size: var(--text-2xl);
+    }
+}
