@@ -4,8 +4,8 @@
    Envio para Google Sheets via Apps Script
    ======================================== */
 
-// >>>> Cole aqui a URL do App da Web publicado no Google Apps Script <<<<
-const LEAD_ENDPOINT = '';
+// URL do App da Web (Google Apps Script) que grava na planilha de leads
+const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxwqQwuOtq0IPh64vOpuQ1gEUjUp57UOfCuUmSL9mFCPPjX8WjLOr6NgyM_XRaB2YLg/exec';
 
 const WHATSAPP_NUMBER = '5562992193758';
 const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'gbraid', 'wbraid'];
