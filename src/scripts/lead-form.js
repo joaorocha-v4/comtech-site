@@ -240,7 +240,7 @@ function initContactForm() {
         card.innerHTML =
           '<div class="lead-success" style="display:block">' +
           '<i class="bi bi-check-circle"></i>' +
-          '<h4>Solicitação enviada!</h4>' +
+          '<h3 class="as-h4">Solicitação enviada!</h3>' +
           '<p>Recebemos seus dados e nossa equipe retornará o mais rápido possível.</p>' +
           '<a class="btn btn-whatsapp" target="_blank" rel="noopener" href="' + whatsappHandoffUrl(data.produto) + '">' +
           '<i class="bi bi-whatsapp"></i> Agilizar pelo WhatsApp</a></div>';

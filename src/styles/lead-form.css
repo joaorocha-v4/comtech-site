@@ -105,7 +105,8 @@ form[data-validate] input.form-error {
     margin-bottom: var(--space-3, 0.75rem);
 }
 
-.lead-success h4 {
+.lead-success h4,
+.lead-success h3.as-h4 {
     color: var(--text-strong, #1c2330);
     margin-bottom: var(--space-2, 0.5rem);
     font-size: 1.25rem;

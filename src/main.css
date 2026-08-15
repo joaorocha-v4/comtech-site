@@ -195,7 +195,8 @@
     flex-shrink: 0;
 }
 
-.infographic-content h4 {
+.infographic-content h4,
+.infographic-content h3 {
     font-size: var(--text-base);
     margin-bottom: var(--space-1);
 }
@@ -429,7 +430,8 @@
     flex-shrink: 0;
 }
 
-.contact-info-content h4 {
+.contact-info-content h4,
+.contact-info-content h3 {
     font-size: var(--text-base);
     margin-bottom: var(--space-1);
 }

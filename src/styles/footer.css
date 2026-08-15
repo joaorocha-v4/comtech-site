@@ -85,7 +85,8 @@
 }
 
 /* Footer Columns */
-.footer-column h4 {
+.footer-column h4,
+.footer-column .footer-title {
     font-size: var(--text-base);
     font-weight: var(--font-semibold);
     color: var(--text-inverted);
