@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
    ======================================== */
 
 function openWhatsApp(message = '') {
-  const phone = '5562993451441';
+  const phone = '5562992193758';
   const encodedMessage = encodeURIComponent(message);
   const url = `https://wa.me/${phone}?text=${encodedMessage}`;
   window.open(url, '_blank');
