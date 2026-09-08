@@ -12,5 +12,8 @@
   },
   "devDependencies": {
     "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "@vercel/functions": "^3.9.5"
   }
 }
