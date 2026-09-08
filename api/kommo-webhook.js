@@ -89,13 +89,28 @@ function contactValue(contact, code) {
 async function enviarConversao(row) {
   const endpoint = process.env.CONVERSIONS_ENDPOINT;
   if (!endpoint) throw new Error('CONVERSIONS_ENDPOINT não configurado');
-  const res = await fetch(endpoint, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-    body: new URLSearchParams({ tipo: 'conversao', ...row }).toString(),
-    signal: AbortSignal.timeout(12000),
-  });
-  if (!res.ok) throw new Error('planilha respondeu ' + res.status);
+
+  const body = new URLSearchParams({ tipo: 'conversao', ...row }).toString();
+
+  // O Apps Script serializa execuções do mesmo script: se dois leads mudarem de
+  // etapa juntos, o segundo espera o primeiro. Daí o timeout folgado + 1 retentativa.
+  let ultimoErro;
+  for (let tentativa = 1; tentativa <= 2; tentativa += 1) {
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body,
+        signal: AbortSignal.timeout(tentativa === 1 ? 20000 : 8000),
+      });
+      if (!res.ok) throw new Error('planilha respondeu ' + res.status);
+      return;
+    } catch (e) {
+      ultimoErro = e;
+      console.warn(`[webhook] planilha falhou (tentativa ${tentativa}):`, e.message);
+    }
+  }
+  throw ultimoErro;
 }
 
 async function processarLead(cfg, leadId, statusId) {
