@@ -19,8 +19,8 @@ Google Ads (Data Manager)
 
 | Etapa no Kommo | Conversão no Google Ads | Valor |
 |---|---|---|
-| Proposta (109867911) | `Lead qualificado (CRM)` | sem valor |
-| Fechado - ganho (142) | `Venda (CRM)` | campo "Venda" do lead, em BRL |
+| Proposta (109867911) | `Lead qualificado CRM` | sem valor |
+| Fechado - ganho (142) | `Venda CRM` | campo "Venda" do lead, em BRL |
 
 Só entram na planilha do Google os leads **com `gclid`** — ou seja, os que vieram de
 clique em anúncio. Os demais ficam na aba "Log" pra conferência, o que também serve
@@ -83,10 +83,13 @@ ou CRMs → Acompanhar conversões de cliques**, crie duas:
 
 | Nome (idêntico ao da planilha) | Categoria | Contagem | Valor |
 |---|---|---|---|
-| `Lead qualificado (CRM)` | Lead qualificado | Uma | sem valor |
-| `Venda (CRM)` | Compra | Uma | usar valor da importação, moeda BRL |
+| `Lead qualificado CRM` | Lead qualificado | Uma | sem valor |
+| `Venda CRM` | Compra | Uma | usar valor da importação, moeda BRL |
 
 O nome precisa bater **exatamente** com o que vai na coluna `Conversion Name`.
+
+> Sem parenteses no nome: o filtro da Central de Dados so aceita letras, numeros,
+> underline, espaco e traco. Foi por isso que os nomes nao levam "(CRM)" entre parenteses.
 
 ## Passo 4 — Importação da planilha
 
@@ -119,9 +122,9 @@ importação.
 
 Depois de acumular volume (idealmente ~30 conversões/mês na ação escolhida):
 
-1. Deixe **`Lead qualificado (CRM)`** como conversão principal — é o sinal mais próximo
+1. Deixe **`Lead qualificado CRM`** como conversão principal — é o sinal mais próximo
    do dinheiro que ainda tem volume.
-2. **`Venda (CRM)`** como principal também só se houver volume; senão, secundária,
+2. **`Venda CRM`** como principal também só se houver volume; senão, secundária,
    servindo pra medir e alimentar o Maximizar valor no futuro.
 3. Rebaixe **"Lead — Formulário do site"** para secundária quando a conversão de CRM
    tiver volume — senão o Google continua otimizando pra quem preenche formulário,

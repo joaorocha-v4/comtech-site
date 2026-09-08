@@ -24,12 +24,12 @@ const TIMEZONE_OFFSET = '-03:00'; // America/Sao_Paulo
 function conversionMap() {
   return {
     [process.env.KOMMO_STATUS_QUALIFICADO || '109867911']: {
-      nome: 'Lead qualificado (CRM)',
+      nome: 'Lead qualificado CRM',
       tag: 'ads-qualificado',
       comValor: false,
     },
     [process.env.KOMMO_STATUS_VENDA || '142']: {
-      nome: 'Venda (CRM)',
+      nome: 'Venda CRM',
       tag: 'ads-venda',
       comValor: true,
     },
