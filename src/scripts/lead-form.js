@@ -1,11 +1,15 @@
 /* ========================================
    COMTECH SAÚDE — Formulário de Leads
    Modal de orçamento + captura de UTMs
-   Envio para Google Sheets via Apps Script
+   Envio para /api/lead (cria o lead no Kommo
+   e replica na planilha do Google)
    ======================================== */
 
-// URL do App da Web (Google Apps Script) que grava na planilha de leads
-const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxwqQwuOtq0IPh64vOpuQ1gEUjUp57UOfCuUmSL9mFCPPjX8WjLOr6NgyM_XRaB2YLg/exec';
+// Endpoint próprio (função serverless na Vercel) — cria o lead no Kommo
+const LEAD_ENDPOINT = '/api/lead';
+
+// Fallback: Apps Script da planilha, usado só se o endpoint próprio falhar
+const FALLBACK_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxwqQwuOtq0IPh64vOpuQ1gEUjUp57UOfCuUmSL9mFCPPjX8WjLOr6NgyM_XRaB2YLg/exec';
 
 const WHATSAPP_NUMBER = '5562992193758';
 const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'gbraid', 'wbraid'];
@@ -57,17 +61,44 @@ function fillHiddenFields(form, produto) {
 
 function sendLead(data) {
   pushDataLayer('lead_form_submit', data);
-  if (!LEAD_ENDPOINT) {
-    console.warn('[lead-form] LEAD_ENDPOINT não configurado — lead não enviado à planilha.');
-    return Promise.resolve();
-  }
-  const body = new URLSearchParams(data).toString();
+
   return fetch(LEAD_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+    body: JSON.stringify(data),
+  })
+    .then((res) => {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json().catch(() => ({ ok: true }));
+    })
+    .catch((err) => {
+      console.warn('[lead-form] /api/lead indisponível, enviando direto à planilha:', err);
+      return sendLeadFallback(data);
+    });
+}
+
+// Rede de segurança: grava na planilha mesmo se a função serverless estiver fora
+function sendLeadFallback(data) {
+  if (!FALLBACK_ENDPOINT) return Promise.resolve({ ok: false });
+  return fetch(FALLBACK_ENDPOINT, {
     method: 'POST',
     mode: 'no-cors',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-    body: body,
-  });
+    body: new URLSearchParams(data).toString(),
+  }).then(() => ({ ok: true, fallback: true }));
+}
+
+// Campo-isca invisível: bots preenchem, pessoas não. Descartado no servidor.
+function addHoneypot(form) {
+  if (form.querySelector('input[name="website"]')) return;
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.name = 'website';
+  input.tabIndex = -1;
+  input.autocomplete = 'off';
+  input.setAttribute('aria-hidden', 'true');
+  input.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;opacity:0';
+  form.appendChild(input);
 }
 
 function pushDataLayer(event, data) {
@@ -118,6 +149,7 @@ function initLeadModal() {
   const modal = overlay.querySelector('.lead-modal');
   const produto = modal.getAttribute('data-produto') || document.title;
   const form = overlay.querySelector('#leadForm');
+  addHoneypot(form);
   const closeBtn = overlay.querySelector('.lead-modal-close');
   const feedback = overlay.querySelector('.lead-form-feedback');
   const success = overlay.querySelector('.lead-success');
@@ -187,6 +219,8 @@ function initLeadModal() {
 function initContactForm() {
   const form = document.querySelector('form[data-validate]');
   if (!form || form.id === 'leadForm') return;
+
+  addHoneypot(form);
 
   // acrescenta campos ocultos de rastreamento
   ['produto', 'pagina', 'url', 'utm_source', 'utm_medium', 'utm_campaign',

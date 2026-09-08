@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Kommo / Vercel
+.env
+.env.local
+.vercel

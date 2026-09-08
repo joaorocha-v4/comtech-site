@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "kommo:setup": "node scripts/kommo-setup.mjs",
+    "kommo:test": "node scripts/kommo-setup.mjs --test"
   },
   "devDependencies": {
     "vite": "^7.2.4"
