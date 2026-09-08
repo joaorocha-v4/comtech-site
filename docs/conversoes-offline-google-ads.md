@@ -30,26 +30,43 @@ Cada conversão é enviada **uma única vez**: ao enviar, o lead ganha a tag
 `ads-qualificado` ou `ads-venda`, e o webhook ignora leads que já têm a tag. Se o lead
 voltar de etapa e avançar de novo, não conta duas vezes.
 
-## Passo 1 — Planilha de conversões
+## Onde as conversões são gravadas
 
-1. Crie uma planilha nova no Drive (ex.: "[Comtech Saude] Conversões Offline").
-2. **Extensões → Apps Script**, apague o conteúdo e cole `scripts/apps-script-conversoes.gs`.
-3. **Implantar → Nova implantação → App da Web**: executar como *você*,
-   acesso para *qualquer pessoa*.
-4. Copie a URL terminada em `/exec` → é o `CONVERSIONS_ENDPOINT`.
+Na **mesma planilha dos leads** ("[Comtech Saude] Leads Forms Site"), em duas abas
+criadas pelo Apps Script:
 
-## Passo 2 — Variáveis na Vercel
+- **Conversões offline** — só as 5 colunas que o Google Ads importa; entra apenas
+  quem tem `gclid`.
+- **Log conversões** — todo evento recebido do Kommo, com ou sem `gclid`.
+
+O mesmo App da Web atende os dois fluxos: o parâmetro `tipo=conversao` distingue
+uma conversão de um lead. Por isso `CONVERSIONS_ENDPOINT` e `SHEETS_ENDPOINT` têm
+o mesmo valor. O código publicado está em `scripts/apps-script-planilha-leads.gs`;
+para alterar, edite na planilha (**Extensões → Apps Script**) e publique com
+**Implantar → Gerenciar implantações → lápis → Nova versão**, que mantém a URL.
+
+### Proteção contra conversão duplicada
+
+Duas camadas, porque uma só não basta:
+
+1. No Kommo, o lead ganha a tag `ads-qualificado`/`ads-venda` depois do envio, e
+   leads com a tag são ignorados.
+2. Na planilha, antes de gravar, o script confere se já existe aquela conversão
+   para aquele `lead_id` no log. Isso cobre o caso em que a gravação acontece mas
+   a resposta demora e o envio é repetido — foi exatamente o que apareceu no teste.
+
+## Passo 1 — Variáveis na Vercel
 
 Acrescente às que já existem (e redeploy):
 
 | Variável | Valor |
 |---|---|
-| `CONVERSIONS_ENDPOINT` | URL `/exec` do passo 1 |
+| `CONVERSIONS_ENDPOINT` | mesma URL `/exec` de `SHEETS_ENDPOINT` |
 | `WEBHOOK_SECRET` | a chave gerada (está no `.env` local) |
 | `KOMMO_STATUS_QUALIFICADO` | `109867911` |
 | `KOMMO_STATUS_VENDA` | `142` |
 
-## Passo 3 — Webhook no Kommo
+## Passo 2 — Webhook no Kommo
 
 ```bash
 node --env-file=.env scripts/kommo-webhook-register.mjs --criar
@@ -59,7 +76,7 @@ Confere o que está registrado com o mesmo comando sem `--criar`, e remove com
 `--remover <id>`. O endpoint responde ao Kommo em menos de 2 segundos e processa
 o resto em segundo plano — exigência do Kommo, que desativa webhooks lentos.
 
-## Passo 4 — Ações de conversão no Google Ads
+## Passo 3 — Ações de conversão no Google Ads
 
 Em **Metas → Conversões → Nova ação de conversão → Importar → Outras fontes de dados
 ou CRMs → Acompanhar conversões de cliques**, crie duas:
@@ -71,10 +88,10 @@ ou CRMs → Acompanhar conversões de cliques**, crie duas:
 
 O nome precisa bater **exatamente** com o que vai na coluna `Conversion Name`.
 
-## Passo 5 — Importação da planilha
+## Passo 4 — Importação da planilha
 
 Em **Ferramentas → Gerenciador de dados**, crie uma conexão com o **Planilhas Google**,
-aponte pra planilha do passo 1, aba **Conversões offline**, e agende a importação
+aponte pra planilha de leads, aba **Conversões offline**, e agende a importação
 (diária basta). O mapeamento das colunas:
 
 | Coluna da planilha | Campo do Google |
